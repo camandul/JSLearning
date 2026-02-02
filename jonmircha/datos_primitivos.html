@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de JavaScript</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Fundamentos de JavaScript</h1>
+    </header>
+
+    <main>
+
+        <h2>Tipos de datos primitivos</h2>
+
+        <script>
+
+            /* ---------------------- Let y Var -------------------------- */
+
+            var hola = 'Hola mundo'; /* Es mala práctica usar var porque puede llegar a ser global y no 
+            siempre se desea esto */
+            console.log(hola);
+
+            let hello = "Hello world";
+            console.log(hello);
+
+            console.log(window); /* Me está describiendo todas las cosas en pantalla */
+
+            console.log(hola); /* En este caso me muestra la variable debido a q tiene un scope global */
+            console.log(hello); /* Mientras que en este caso no ocurre de la misma forma, es por esto 
+            que es necesario usar let, siendo una forma más segura de programar */
+
+            /* Ejemplo de porque es mejor no usar var para la declaración de variables */
+
+            var musica = "Rock";
+
+            console.log("Variable musica antes del bloque: ", musica);
+
+            /* Este es mi bloque */
+            {
+                var musica = "Pop" /* Debería ser una variable diferente debido a que es otro scope */
+                console.log("Variable musica es: ", musica)
+            }
+
+            console.log("Variable musica después del bloque: ", musica); /* Conserva el valor del bloque (pop)... */
+
+
+            /* ---------------------------- Let -----------------------------*/
+
+            let musica2 = "Rock";
+
+            console.log("Variable musica antes del bloque: ", musica2);
+
+            /* Este es mi bloque */
+            {
+                let musica2 = "Pop"
+                console.log("Variable musica es: ", musica)
+            }
+
+            console.log("Variable musica después del bloque: ", musica2); /* Sigue siendo la variable que estaba afuera del bloque */
+
+
+            /* ---------------------------- Const -----------------------------*/
+
+            const PI = 3.1416;
+            console.log(PI);
+
+            /* PI = 34; */ /* Esto marca error debido a que no puedo redefinir este valor, lo ideal es dejar este tipo de valores en MAYUS */
+            console.log(PI)
+
+
+            /* ---------------------------- Strings -----------------------------*/
+
+            /* Es una cadena de texto de toda la vida */
+
+            let nombre = "Hola";
+            nombre = 'Holaaa'; /* Como se puede apreciar, puedo usar "x" o 'x' para ingresar los valores de mi variable*/
+            console.log(nombre)
+
+            /* Existe otra forma de declarar una variable (string) y esta es usando la creación de un objeto string */
+            let cadenaTexto = new String('Hola Mundo'); /* Pero honestamente esta ya no es usada a día de hoy, es demasiado formal */
+            console.log(cadenaTexto) /* Incluso, al imprimir esta variable, lo está haciendo en forma de objeto, enseñandose de forma diferente
+            a un console.log de una variable declara de manera tradicional */
+
+
+            /* Propiedades */
+
+            /* Existen ciertas propiedades con las que cuenta una varible de tipo String, estas se pueden conocer gracias a añadir un punto
+            a la variable y a que estas no cuentan con parentesis, como si lo hacen los métodoso/funciones */
+
+            console.log(cadenaTexto.length); /* Esta es una propiedad, no un método del que dispone cadenaTexto */
+
+
+            /* Métodos / Funciones */
+
+            /* Estas se diferencian principalmente por los paréntesis con los que cuentan */
+
+            console.log(nombre);
+            console.log(nombre.toLowerCase()); /* Esto estará totalmente en minúsculas */
+            console.log(nombre.toUpperCase()); /* Esto estará totalmente en mayúsculas */
+
+            nombre = "Andrés Camilo"
+            console.log(nombre.includes('Camilo')); /* Esto retorna true gracias a que Camilo si está dentro de la variable */
+
+            nombre = "        Andrés Camilo        ";
+            console.log(nombre.trim());
+
+            /* String interpolation, tal como lo vi en Python */
+            console.log(`Hola mundo JavaScript, mi nombre es ${nombre.trim()}.`);
+
+            /* La forma más rudimentaria de hacer este proceso es así: */
+            console.log("Hola mundo, mi nombre es" + nombre.trim());
+
+
+            /* Backtick me sirve de igual forma paramanejar cadenas que tienen enters o así,
+            mientras que las comillas sencillas o dobles no soportan esto */
+
+            /* let lista = 'Esta es una lista y no tolera saltos de línea
+            No lo hace' */
+
+            let lista2 = `Esta es una lista y si soporta saltos de linea
+            Este es un ejemplo`
+
+
+            /* ------------------------- Number -------------------------- */
+
+            let a = 2; /* Forma natural de creación de una variable que contiene un número */
+            let b = new Number(3); /* Forma teórica y más formal de este proceso */
+            let c = 7.19
+
+            console.log(a);
+            console.log(b);
+            console.log(c.toFixed(1)); /* toFixed se encarga de redondear valores, muestra 
+            unicamente el primer valor decimal*/
+
+            console.log(c.toFixed(5));
+
+            /* Existe una funcionalidad interna que parsea cualquier valor de tipo numérico, haciendo que
+            el valor tome solo partes enteras o variaciones dependiendo de la necesidad */
+
+            console.log(parseInt(c)); // Como se puede apreciar este método es diferente:
+            /* En vez de usar la variable sumada a un método, la variable es situada dentro de ese método como parámetro */
+
+            /* Otro ejemplo de funcionalidades extrañas es el siguiente: */
+            let d = "5.6";
+
+            console.log(typeof c, typeof d); /* Sin usar paréntesis u otra cosa */
+
+            let e = parseInt(d);
+            console.log(typeof e);
+
+            let f = 'Hola mundo';
+            f = parseInt(f)
+            console.log(typeof f); /* Al intentar hacer esto (intentar parseint a texto) obtengo NaN (Not a number) */
+            console.log(f)
+
+            console.log(a + b);
+
+            /* Si intento sumar valores en donde uno es cadena y otro number sin haber tratado a la cadena previamente
+            entonces obtendré el siguiente resultado */
+
+            let g = "34";
+
+            console.log(g + a); /* Da 342, es decir, que no está sumando sino concatenando */
+
+            /* Si deseo no tener problemas con las operaciones de valores de número dado en cadena, primero
+            tengo que hacer un casting (parseo) */
+
+            console.log(parseInt(g) + a); /* Me da 36 lo que es correcto */
+
+
+            /* ------------------------- Booleans -------------------------- */
+
+            let verdadero = true;
+            let falso = false;
+            let v = Boolean(true) /* Usando el constructor, la forma antigua */
+
+            console.log(verdadero, falso);
+            console.log(typeof verdadero);
+            console.log(typeof falso);
+            console.log(typeof v);
+
+            /* Los valores que tienden a tener un valor booleano. 
+            Para obtener estos es necesario aplicar el constructor Boolean() */
+
+            console.log(Boolean(0)); /* false */
+            console.log(Boolean(-3)); /* true */
+            console.log(Boolean(4)); /* true */
+            console.log(Boolean("")); /* false */
+            console.log(Boolean(" ")); /* true */
+            
+            console.log(Boolean(null)) /* false */
+            console.log(Boolean(undefined)) /* false */
+            console.log(Boolean(NaN)) /* false */
+
+
+            /* ------------------------- Valores: undefined, null y NaN -------------------------- */
+
+            /* undefined: Variable que no ha sido inicializada */
+            /* null:  Valor asignado intencionalmente asignado por el programador*/
+            /* Ambos indican que la variable está vacía, pero uno de forma automática y otro de forma intencional */
+
+            /* NaN Se da cuando se trata de hacer operaciones numéricas con elementos que no son un número*/
+
+
+            /* undefined */
+            let indefinida; /* Este valor es de tipo undefined */
+            console.log(indefinida, typeof indefinida);
+
+            /* null */
+            let nullposible = null; /* Este valor si lo estoy igualando a null de forma intencionada */
+            console.log(nullposible, typeof nullposible);
+
+            /* NaN */
+            let nana = 'Hola'
+            console.log(nana * 4); /* El resultado será un NaN */
+
+        </script>
+
+    </main>
+
+</body>
+
+</html>

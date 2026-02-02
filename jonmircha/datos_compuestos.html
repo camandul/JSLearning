@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de datos compuestos</title>
+</head>
+
+<body>
+
+    <h1>Tipos de datos compuestos</h1>
+
+    <script>
+
+        /* ------------- Funciones -------------- */
+
+        /* Las funcioes en JS son un objeto, las funciones son muy poderosas en JS, es posible retornar
+        la ejecución de una función adicional */
+
+        /* Función declarada: No retorna valor */
+        function estoEsUnaFuncion() {
+            console.log('Uno');
+            console.log('Dos');
+            console.log('Tres');
+        }
+
+        /* Invocación de función */
+        estoEsUnaFuncion();
+
+        /* Función que retorna valor */
+        function funcionValor() {
+            console.log('Uno');
+            console.log('Dos');
+            console.log('Tres');
+            return 'La función ha retornado una cadena de texto'
+        }
+
+        valorFuncion = funcionValor();
+
+        console.log(valorFuncion, typeof valorFuncion); /* Es igual a:
+        La función ha retornado una cadena de texto */
+
+        /* El valor retornado, solo se mostrará si igualo una variable a mi función, de lo contrario, 
+        esto no será posible*/
+
+
+        /* El primer return es el que obtendré: */
+        function exampleFun() {
+            console.log('hola');
+            return 5; /* Se sale acá */
+
+            console.log('Si, hola');
+            return 6;
+        }
+
+
+        funcionPara();
+        /* Función con parámetros */
+        function funcionPara(nombre = 'Desconocido', edad = 0) {
+            console.log(`Hola, me llamo ${nombre} y tengo ${edad}`)
+        }
+
+        funcionPara('Camilo', 20); /* Ejecuta la función con estos datos */
+        funcionPara(); /* Va a tener valores undefined, es por esto que es buena práctica asignar valores
+        por defecto en las funciones para tener en cuenta casos específicos */
+
+        /* Es posible usar funciones antes de haber haberlas declarado, ya que internamente JS aplica un
+        concepto denominado hoisting: En cierta manera elevarla a donde van las variables */
+
+
+
+        /* Todas las funciones previas eran funciones declaradas, mientras que las funciones dadas de la siguiente
+        manera son funciones expresadas */
+
+        /* A esta estructura de funciones también se le denomina:
+        Funciones anónimas, ya que la función no es la que tiene una función, sino es una constante
+        la que está brindando este resultado */
+        const funcionExpresada = function () {
+            console.log('Esto es una función expresada, es decir, una función que se asignó a una variable');
+        }
+
+        funcionExpresada();
+        /* Si uso funciones expresadas, entonces ya no podré usarlas antes de declararlas, de esta forma
+        si tendré error */
+
+        /* Actualmente es más utilizado el tipo de funciones expresadas que funciones declaradas */
+
+
+
+
+        /* Arreglos */
+
+        /* No está demás recordar que las funciones (expresadas) y arreglos suelen declararse como constatntes,
+        esto debido a que si bien cambian cosas internas, no cambia lo fundamental, el tipo de dato, bien sea 
+        function o array */
+        const a = [];
+        const b = [1, true, 'hola', ["a", "b", "c", [1, 2, 3]]];
+        console.log(a);
+        console.log(b);
+
+        /* La posición empieza en el indice 0 */
+        console.log(b.length); /* Número de elementos = 4 */
+        console.log(b[0]); /* Valor del indice 0 = 1 */
+        console.log(b[3]); /* Array completo */
+        console.log(b[3][2]); /* Imprime la letra c del arreglo interno, ya que ocupa el indice 2 */
+        console.log(b[3][3][1]); /* Me da el valor 2 que se ubica en el indice 1 del arreglo interno dentro del otro arreglo */
+
+
+        /* Forma alternativa de creación de un arreglo */
+        const c = Array.of('Hola', 4);
+
+        /* Existen funcionalidades como por ejemplo fill, que llena mi arreglo x cantidad de veces de un elemento y */
+        const d = Array(5).fill(true);
+        console.log(d);
+
+        /* Forma antigua (formal) de creación del elemento de tipo array */
+        const e = new Array();
+        console.log(e);
+
+        const f = new Array(1, 2, 3, true, false);
+        console.log(f);
+
+        /* El método adecuado para agregar valores a un arreglo es */
+        f.push('Si');
+        console.log(f);
+
+        /* Y la forma de tomar el último elemento agregado es con pop */
+        f.pop();
+        console.log(f);
+
+
+        const colores = ['Verde', 'Rojo', 'Naranja'];
+
+        /* Función del array para recorrer al mismo, teniendo en cuenta su id y por supuesto, su valor */
+        colores.forEach(function (valor, indexhola) { /* 1. Se debe indicar el valor y luego el id, así lo toma JS */
+            console.log(`<li id='${indexhola}'>${valor}</li>`);
+        })
+
+    </script>
+
+</body>
+
+</html>
