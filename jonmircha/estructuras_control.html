@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructuras de control</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Estructuras de control</h1>
+    </header>
+
+    <main>
+
+        <script>
+
+            /* Estructuras de control */
+
+            /* if else */
+
+            let edad = 17;
+
+            if (edad >= 18) {
+                console.log('Eres mayor de edad, tienes ' + edad + ' años');
+            } else (console.log('Eres menor de edad, tienes ' + edad + ' años'))
+
+
+            /* if extendido */
+
+            let hora = 5;
+
+            if (hora >= 0 && hora <= 5) {
+                console.log('Dejame dormir');
+            } else if (hora >= 6 && hora <= 11) {
+                console.log('Buenos días');
+            } else if (hora >= 12 && hora <= 18) {
+                console.log('Buenas tardes');
+            } else {
+                console.log('Buenas noches');
+            }
+
+
+            /* Operador ternario (solo una línea de código) */
+
+            let mayor = (edad >= 18)
+                ? 'Eres mayor de edad'
+                : 'Eres menor de edad';
+
+            console.log(mayor);
+
+
+            /* Switch case */
+
+            /* Domingo 0
+            Lunes 1
+            Martes 2
+            Miercoles 3
+            Jueves 4
+            Viernes 5
+            Sábado 6 */
+
+            /* Los casos no usan paréntesis */
+
+            let dia = 0;
+
+            switch (dia) {
+
+                case 0:
+                    console.log('Día domingo')
+                    break;
+
+                case 1:
+                    console.log('Día lunes');
+                    break;
+
+                case 2:
+                    console.log('Día martes');
+                    break;
+
+                case 3:
+                    console.log('Día miercoles')
+                    break;
+
+                case 4:
+                    console.log('Día jueves');
+                    break;
+
+                case 5:
+                    console.log('Día viernes');
+                    break;
+
+                case 6:
+                    console.log('Día sábado');
+                    break;
+
+                default:
+                    console.log('Este día no existe');
+                    break;
+
+            }
+
+        </script>
+
+    </main>
+
+</body>
+
+</html>

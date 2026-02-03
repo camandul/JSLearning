@@ -137,6 +137,60 @@
             console.log(`<li id='${indexhola}'>${valor}</li>`);
         })
 
+
+
+
+        /* Objetos */
+        /* En JS todo es un objeto */
+
+        /* Lleva esta estructura */
+        const o = {
+        }
+
+        /* Camino formal de hacer un objeto */
+        const k = new Object();
+        console.log(k);
+
+        /* Asignar lleva la estructura de llave valor */
+        const ob = {
+
+            nombre: 'Camilo',
+            apellido: 'Ocampo',
+            edad: 21,
+            pasatiempos: ['Programar', 'Producir', 'Idiomas', 'Deportes'],
+            desempleado: true,
+            saludar: function () {
+                console.log('Hola :)')
+            },
+            decirMiNombre: function(){
+                console.log(`Hola, me llamo ${this.nombre} ${this.apellido} y tengo ${this.edad} años`);
+            }
+        }
+
+        /* Estos son atributos */
+        console.log(ob);
+        console.log(ob['nombre']); /* Esta forma me deja acceder a valores del objeto pero no es usada */
+        console.log(ob.nombre); /* Esta es la forma más utilizada */
+        console.log(ob.desempleado);
+        console.log(ob.pasatiempos);
+        console.log(ob.pasatiempos[0]);
+
+        /* Al tener esta función que imprime en pantalla, es posible hacer esto */
+        ob.saludar();
+        /* Sin necesidad de volver a hacer un console.log */
+
+        ob.decirMiNombre();
+
+
+        console.log(Object.keys(ob)); /* Este método lista las propiedades y métodos de algún objeto */
+        console.log(Object.values(ob)); /* Este método lista los valores */
+        console.log(ob.hasOwnProperty('nombre')); /* Verifica que sea falsa o verdadera la existencia de
+        una propiedad 'nombre' lo cual es verdadero*/
+        console.log(ob.hasOwnProperty('saludar')); /* true, también sirve con funciones */
+        console.log(ob.hasOwnProperty('nacimiento')); /* falso, esta propiedad no existe en el objeto */
+        
+        console.log(typeof null);
+
     </script>
 
 </body>
