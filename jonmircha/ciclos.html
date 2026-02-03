@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclos</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Ciclos</h1>
+    </header>
+
+    <main>
+
+        <script>
+
+            /* While y Dowhile: Están callendo en desuso pero no está demás conocerlo */
+
+            /* While */
+            let contador = 0;
+            while (contador <= 10) {
+                console.log(contador);
+                contador++
+            }
+
+            /* ------------------------------------- */
+
+            /* Do while */
+            do {
+                console.log('El valor es: ' + contador);
+            } while (contador < 10);
+
+            const miArreglo = ['Gta IV', 'Gta V', 'Gta VI'];
+
+            /* For */
+            for (let index = 0; index < miArreglo.length; index++) {
+                console.log('Mi resultado es: ' + miArreglo[index] + ' ' + index);
+            }
+
+            for (let i = 0; i <= 10; i++) {
+                console.log(i);
+            }
+
+            /* ------------------------------------- */
+
+            /* For In: Es un for especial para un objeto: Recorrer las propiedades que este tiene */
+            const cam = {
+                nombre: 'Camilo',
+                edad: '21',
+                gustos: ['musica', 'programación', 'idiomas', 'videojuegos']
+            };
+
+            for (const propiedad in cam) {
+                console.log(propiedad, cam[propiedad]); /* Nombre de propiedad y valor */
+            }
+
+            /* Este ciclo forin no me deja usar la notación del punto para acceder a los atributos de un objeto,
+            entonces, para esto requiero usarlo de la forma objeto[propiedad] */
+            for (const propiedad in cam) {
+                console.log(cam[propiedad]); /* Solo valor de la propiedad */
+            }
+
+            /* ------------------------------------- */
+
+            /* Forof */
+
+            const arregloProbando = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+
+            /* Me permite iterar en cualquier objeto iterable, puede ser un arreglo */
+            for (const elemento of arregloProbando) { /* El valor elemento es directamente array[i], no es indice */
+                console.log(elemento);
+            }
+
+            let cadena = 'Hola mundo';
+
+            for (const element of cadena) {
+                console.log(element);
+            }
+
+            /* ------------------------------------- */
+
+            /* Foreach */
+            /* Tiene esta estructura y además, lleva tanto el valor como el indice si así se desea */
+            /*  Está dado en ese orden y no se puede cambiar */
+            arregloProbando.forEach((valor, indice) => {
+                console.log('El valor es: ' + valor + ' Y el indice es: ' + indice);
+            });
+
+        </script>
+
+    </main>
+
+</body>
+
+</html>

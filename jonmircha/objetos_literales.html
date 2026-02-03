@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos literales</title>
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Objetos literales</h1>
+
+    </header>
+
+    <main>
+ 
+        <script>
+
+            /* Previamente a EcmaScript 6, los objetos se manejaban de la forma en como la manejé en los apuntes 
+            anteriores, es decir, de la siguiente manera: */
+
+            let name = 'Bonny';
+            let age = 14;
+
+            const perro = {
+                name: name,
+                age: age,
+                ladrar: function(){
+                    console.log('guau guau');
+                }
+            }
+
+            console.log(perro);
+            perro.ladrar();
+
+            /* Pero ahora, se maneja de esta manera, siendo mucho más cómodo y ágil a la hora de crear el objeto */
+            const dog = {
+                name,
+                age,
+                bark(){
+                    console.log('woof woof')
+                }
+            }
+
+            console.log(dog);
+            dog.bark();
+
+        </script>
+
+    </main>
+    
+</body>
+</html>

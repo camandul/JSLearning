@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break and continue</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Break and continue</h1>
+    </header>
+
+    <main>
+
+        <script>
+
+            const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+            /* break */
+            /* Break rompe el flujo natural y se sale del todo del ciclo */
+            for (let i = 0; i < numeros.length; i++) {
+
+                console.log(i)
+
+                if (i === 5) {
+                    break;
+                }
+            }
+
+            /* ---------------------------------------------- */
+
+            /* continue */
+            /* continue, por otra parte está encargado de omitir una de las iteraciones según sea el caso*/
+            for (let i = 0; i < numeros.length; i++) {
+
+                if (i == 5) { /* Omitirá el caso de la iteración 6 */
+                    continue;
+                }
+
+                console.log(i)
+            }
+
+            /* Ejemplo para solo imprimir números pares */
+            for (let i = 0; i < numeros.length; i++) {
+
+                if ((i % 2) === 0) {
+                    continue;
+                }
+                
+                console.log(i)
+            }
+
+        </script>
+
+    </main>
+
+</body>
+
+</html>

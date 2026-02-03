@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuración</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Destructuración</h1>
+    </header>
+
+    <main>
+
+        <script>
+
+            /* Se trata de una forma en la cual se hacen asignaciones de forma adecuada */
+
+            let numeros = [1,2,3];
+
+            /* Forma sin aplicar destructuración */
+            let uno = numeros[0];
+            let dos = numeros[1];
+            let tres = numeros[2];
+
+            console.log(uno,dos,tres); 
+
+
+            /* Aquí se aplica destructuración */
+            
+            const[one,two,three] = numeros;
+            console.log(one,two,three); /* Se está asignando de forma destructurada
+            Se usa bastante creando componentes en ReactJS */
+
+
+            /* Puedo hacer lo mismo si lo deseo con un objeto */
+            let persona = {
+                nombre: 'Camilo',
+                edad: 21,
+                gustos: ['musica', 'programar', 'idiomas', 'videojuegos']
+            }
+
+            let {nombre, edad, gustos} = persona;
+            console.log(nombre, edad, gustos);
+
+            /* En los objetos es necesario nombrar las variables como las propiedades, incluso puedo 
+            no asignar todas las propiedades como variables independientes, por esto se requiere usar el
+            nombre exacto de la propiedad */
+
+        </script>
+
+    </main>
+    
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo de errores</title>
+</head>
+
+<body>
+
+    <head>
+        <h1>Manejo de errores</h1>
+    </head>
+
+    <main>
+
+        <script>
+
+            /* Estructura de un try catch finally */
+            try {
+                console.log('Se está dando de forma correcta');
+                console.log(varnoexiste);
+                console.log('Este mensaje de aquí no se va a imprimir')
+            } catch (error) {
+                console.log(error);
+            } finally {
+                /* El finally no es muy común */
+                console.log('Exista error o no, siempre se ejecutará')
+            }
+
+
+            /* Es posible crear mensajes de error propios */
+            try {
+                let numero = 'si';
+
+                if (isNaN(numero)) {
+                    throw new Error('El valor ingresado no es un valor numérico')
+                }
+
+                console.log(numero * numero)
+
+            } catch (error) {
+                console.log('Se produjo el error -> ' + error);
+            }
+
+
+        </script>
+
+    </main>
+
+</body>
+
+</html>
