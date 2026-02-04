@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de multiplicar</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Tabla de multiplicar</h1>
+    </header>
+
+    <main>
+
+        <script>
+
+            let tabla = '8';
+            const miArreglo = [];
+
+            function multi(valor) {
+
+                for (let index = 0; index <= 10; index++) {
+                    console.log(valor * index);
+                }
+
+                for (let index = 0; index <= 10; index++) {
+                    miArreglo[index] = index * valor; 
+                }
+
+            }
+
+            try {
+
+                if (isNaN(tabla)) {
+                    throw new Error('El valor ingresado no es un número');
+                }
+
+                multi(tabla);
+                console.log(miArreglo);
+
+            } catch (error) {
+                console.log('Ocurrió el siguiente error -> ' + error)
+            }
+
+        </script>
+
+    </main>
+
+</body>
+
+</html>

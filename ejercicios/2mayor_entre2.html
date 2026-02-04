@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayor entre 2 números</title>
+</head>
+
+<body>
+
+    <script>
+
+        /* Mayor entre 2 números */
+
+        let num1 = '5';
+        let num2 = '8';
+
+        function mayor(num1, num2) {
+
+            if (num1 > num2) {
+                console.log(`El número ${num1} es mayor que ${num2}`);
+            } else if (num1 === num2) {
+                console.log(`Los números ${num1} y ${num2} son iguales`);
+            } else if (num2 > num1) {
+                console.log(`El número ${num2} es mayor que ${num1}`);
+            } else {
+                console.log('Los valores ingresados tienen un formato incorrecto')
+            }
+
+        }
+
+        try {
+
+            if (isNaN(num1) || isNaN(num2)) {
+                throw new Error('Alguno de los números ingresados o ambos, no es del tipo number');
+            }
+
+            mayor(num1, num2);
+
+        } catch (error) {
+            console.log(`Se produjo el error -> ${error}`);
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprobar o reprobar nota</title>
+</head>
+
+<body>
+
+    <script>
+
+        /* Aprobar o reprobar una nota */
+
+        let nota = '12';
+
+        function evaluar(nota) {
+            if ((0 < nota) || (nota > 5)) {
+                console.log('Nota ingresada no valida: ' + nota);
+            } else if (nota < 3) {
+                console.log('Materia reprobada: ' + nota);
+            } else if (nota >= 3) {
+                console.log('Materia aprobada: ' + nota);
+            }
+        }
+
+
+        try {
+            if (isNaN(nota)) {
+                throw new Error('El valor ingresado no es un número');
+            }
+            evaluar(nota);
+        } catch (error) {
+            console.log('Ocurrió el siguiente error ->' + error)
+        }
+
+    </script>
+
+</body>
+
+</html>
