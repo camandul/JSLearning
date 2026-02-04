@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contar pares</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Contar pares</h1>
+    </header>
+
+    <main>
+
+        <script>
+
+            let destino = 20;
+
+            /* Contar pares desde 1 */
+            function contarPares(final){
+                for(let i = 1; i <= final; i++){
+
+                    if(i % 2 == 0){
+                        console.log(i);
+                    }
+
+                }
+            }
+
+            try{
+
+                if(isNaN(destino)){
+                    throw new Error('El valor ingresado no es un digito');
+                }
+
+                contarPares(destino);
+
+            }catch(error){
+                console.log('Ocurrió un error -> '+ error);
+            }
+
+        </script>
+
+    </main>
+    
+</body>
+</html>

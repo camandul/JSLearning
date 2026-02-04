@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma acumulada</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Suma acumulada</h1>
+    </header>
+    
+    <main>
+
+        <script>
+
+            let destino = 5;
+
+            function sumaAcumulada(valorFinal){
+
+                let acumulador = 0;
+
+                for (let index = 0; index <= destino; index++) {
+                    
+                    acumulador += index;
+
+                }
+
+                return acumulador;
+            }
+
+            try{
+
+                if(isNaN(destino)){
+                    throw new Error('Valor ingresado no es un número');
+                }
+
+                console.log(sumaAcumulada(destino));
+
+            }catch(error){
+                console.log('Ocurrió el siguiente error ->'+error)
+            }
+
+        </script>
+
+    </main>
+
+</body>
+</html>

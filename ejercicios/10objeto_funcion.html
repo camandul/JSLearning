@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Función con un objeto por parametro</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Función con un objeto por parametro</h1>
+    </header>
+
+    <main>
+
+        <script>
+
+            let nombre = 'Camilo', edad = 21, ciudad = 'Bogotá';
+
+            const persona = {
+                nombre,
+                edad,
+                ciudad
+            }
+
+            function datos(objPersona) {
+                console.log(`Mi nombre es ${objPersona.nombre}, mi edad es ${objPersona.edad} y vivo en ${objPersona.ciudad}`);
+            }
+
+            function datosOtra(objPersona2) {
+                console.log(`Mi nombre es ${objPersona2['nombre']}, mi edad es ${objPersona2['edad']} y vivo en ${objPersona2['ciudad']}`);
+            }
+
+            try {
+
+                datos(persona);
+                datosOtra(persona); /* Esta forma no es recomendable usarla pero igual la quería comprobar */
+
+            } catch (error) {
+                console.log(error);
+            }
+
+        </script>
+
+    </main>
+
+</body>
+
+</html>

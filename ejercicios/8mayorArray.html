@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayor dentro de un array</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Mayor dentro de un array</h1>
+    </header>
+
+    <main>
+
+        <script>
+
+            let numeros = [3, 7, 2, 9, 0, 39];
+
+            function detectarMayor(miarreglo) {
+
+                let mayor = 0;
+
+                for (let i = 0; i <= miarreglo.length; i++) {
+
+                    if (miarreglo[i] > mayor) {
+                        mayor = miarreglo[i];
+                    }
+
+                    console.log(mayor);
+
+                }
+
+                return mayor;
+
+            }
+
+            try {
+
+                detectarMayor(numeros);
+
+                console.log('romper');
+
+                let mayorFinal = detectarMayor(numeros);
+                console.log(mayorFinal);
+
+            } catch (error) {
+                console.log(error);
+            }
+
+        </script>
+
+    </main>
+
+</body>
+
+</html>

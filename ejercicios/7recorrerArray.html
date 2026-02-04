@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recorrer array</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Recorrer array</h1>
+    </header>
+
+    <main>
+
+        <script>
+
+            let miArray = ['3', '7', '2', '9', '12'];
+
+            function recorrerArray(arrayRecorrer) {
+
+                const otroArray = [];
+
+                for (let index = 0; index < arrayRecorrer.length; index++) {
+                    console.log(index + ': ' + arrayRecorrer[index]);
+                    otroArray[index] = arrayRecorrer[index];
+                }
+
+                return otroArray;
+
+            }
+
+            try {
+
+                const unArrayNuevo = recorrerArray(miArray);
+                console.log(unArrayNuevo);
+
+            } catch (error) {
+                console.log('Ocurrió el error: ' + error);
+            }
+
+        </script>
+
+    </main>
+
+</body>
+
+</html>

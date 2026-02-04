@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contar elementos</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Contar elementos de un array</h1>
+    </header>
+
+    <main>
+
+        <script>
+
+            let numeros = [3, 7, 2, 9, 0, 39];
+
+            function contarElementos(miArray) {
+                let contador = 0;
+
+                while (miArray[contador] !== undefined) {
+                    contador++;
+                }
+
+                return contador;
+            }
+
+            try {
+                
+                let longitud = contarElementos(numeros);
+                console.log(longitud);
+
+            } catch (error) {
+                console.log(error)
+            }
+
+        </script>
+
+    </main>
+
+</body>
+
+</html>

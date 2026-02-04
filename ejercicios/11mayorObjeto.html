@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayor entre personas - objetos</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Mayor entre un arreglo de objetos</h1>
+    </header>
+
+    <main>
+
+        <script>
+
+            var personas = [
+                { nombre: "Ana", edad: 20 },
+                { nombre: "Juan", edad: 17 },
+                { nombre: "Luis", edad: 30 }
+            ];
+
+            function mayorPersonas(arreglo){
+
+                const arregloMayores = [];
+                let indiceNuevo = 0;
+
+                for (let i = 0; i < arreglo.length; i++) {
+                
+                    if(arreglo[i].edad >= 18){
+                        arregloMayores[indiceNuevo] = arreglo[i];
+                        indiceNuevo++;
+                    }
+                    
+                }
+
+                return arregloMayores;
+
+            }
+
+            let nums= mayorPersonas(personas);
+            console.log(nums);
+
+        </script>
+
+    </main>
+
+</body>
+
+</html>
