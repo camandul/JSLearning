@@ -17,22 +17,20 @@
 
         <script>
 
-            /* Manejo del azucar sintáctica, escritura de 'clases', pero esto se pasa a prototipos, que es la base
-            fundamental de JS */
+            /* Clases */
 
             /* Las clases no reciben parámetros */
             class Animal {
 
-                /* Constructor */
+                /* Si se desean recibir parámetros, esto tiene que ser mediante la función constructor */
                 constructor(nombre, genero) {
                     this.nombre = nombre;
                     this.genero = genero;
                 }
 
-                /* Métodos, estos si pueden recibir parámetros en caso de necesitarlos y se pueden dejar adentro
-                de la clase, ya que la implementación  */
+                /* Ecmascript 5 mejoró el tema de los métodos, ya se pueden escribir internamente */
                 sonar() {
-                    console.log('Hago sonidos porque estoy vivo');
+                    console.log('Hago ruido porque estoy vivo');
                 }
 
                 saludar() {
@@ -41,14 +39,74 @@
 
             }
 
-            const boni = new Animal('Bonny', 'Hembra'),
-                bens = new Animal('Bens', 'Hembra');
 
-            console.log(boni);
-            console.log(bens);
+            /* Herencia */
 
+            class Perro extends Animal { /* Uso de la palabra extends */
+
+                constructor(nombre, genero, tamanio) { /* Van tanto los parámetros heredados como los propio */
+
+                    super(nombre, genero); /* Se utiliza el método super, el cuál solamente recibe como
+                    parámetro a aquellos métodos que fueron heredadso */
+                    this.tamanio = tamanio; /* Asignación normal de parámetros */
+                    this.raza = null; /* Esto será útil para ver más adelante cómo funcionan los métodos get y set,
+                    Como se puede apreciar este valor no se recibió por parámetro en la función constructora */
+                }
+
+                /* Sobreescritura de un método, sumamente sencillo */
+                sonar() {
+                    console.log('Soy un perro y mi sonido es un ladrido');  
+                }
+
+                /* Creación de un método propio de la clase */
+                ladrar() {
+                    console.log('guau guau');
+                }
+
+                static queEres(){ /* Los métodos estáticos son útiles para ser ejecutados sin la necesidad de crear
+                    una instancia, es decir, sin necesidad de crear un objeto de tipo perro en este caso */
+                    console.log('Los perros somos animales mamíferos, el mejor amigo del hombre');
+                }
+
+                /* Los métodos get se suelen llamar con el prefijo get, pero de igual forma antes de darle nombre 
+                al método, es necesario poner la palabra get, de la forma: */
+                get getRaza(){
+                    return this.raza;
+                }
+
+                set setRaza(raza){ /* Por otra parte, los set esperan recibir un valor para modificar el valor deseado,
+                    aunque seguirán usando la estructura de prefijo prefijoNombre, como en este caso set setRaza*/
+                    this.raza = raza;
+                }
+
+            }
+
+            Perro.queEres(); /* Método static, por lo que no tuve que instanciar para usarlo */
+
+            /* Creación de un objeto a partir de la clase */
+
+            const boni = new Animal('Boni', 'Hembra');
+            const bens = new Perro('Bens', 'Hemabra', 'Chiquita');
+
+            console.log(boni, bens);
+            boni.saludar();
             boni.sonar();
             bens.saludar();
+            bens.sonar(); 
+
+            console.log('Corta');
+
+            /* El llamado de métodos get y set, a pesar de ser métodos y usar la estructura function(){}, 
+            el llamado a estos no se debe hacer con paréntesis */
+            console.log(bens.getRaza); /* De esta forma obtuve el nombre de mi objeto */
+
+            /* Los sets de igual forma deben tratarse como una propiedad, por lo que se asigna, no se envía el dato
+            por parámetro */
+
+            bens.setRaza = 'Shih Tzu';
+            console.log(bens.getRaza); /* Funciona de forma correcta */
+
+            console.log(bens);
 
         </script>
 
