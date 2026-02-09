@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo DOM JS</title>
+</head>
+
+<body>
+
+    <header>
+
+
+    </header>
+
+    <main>
+
+        <h1 id="cabecero">Ejemplo DOM con JS</h1>
+        <h1 id="cabecero2">Texto prueba</h1>
+        <p id="parrafo">Hola soy parrafo</p>
+        <p id="parrafo2">Parrafo dos</p>
+
+        <!-- Definir este Script antes de la misma existencia de los 
+         elementos hace que se indique un error, ya que es asignar algo
+         que aún no existe, la unica forma en donde se puede aplicar esto
+         es usando un archivo por separado y haciendo el llamado de este
+         en la etiqueta head, tal y como se llama al documento de estilos -->
+        <script>
+
+            console.log('Hola desde la consola de JS');
+
+            /* Usando la propiedad innerHTML para poder guardar el valor interno
+             y no un objeto completo */
+            let cabecero = document.getElementById('cabecero');
+            console.log(cabecero.innerHTML);
+
+            let parrafo = document.getElementById('parrafo');
+            console.log(parrafo.innerHTML);
+
+            /* Esta variable no contiene el text unicamente, al no aplicar
+            el método .innerHTML, entonces se toma el objeto de la
+            etiqueta p completa */
+            let parrafo2 = document.getElementById('parrafo2');
+            console.log(parrafo2);
+            /* Su prototipo es un HTMLParagraphElement */
+
+            let cabecero2 = document.getElementById('cabecero2');
+            console.log(cabecero2)
+            /* Su prototipo es un HTMLHeadingElement */
+
+
+            /* Esto efectivamente está modificando el valor en el 
+            documento HTML */
+            parrafo2.innerHTML = 'Cambio de valor, debería ser: Parrafo dos';
+            cabecero.innerHTML = 'Valor editado';
+
+        </script>
+
+    </main>
+
+    <footer>
+
+
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetElementsByTagName</title>
+
+</head>
+
+<body>
+
+    <header>
+
+    </header>
+
+    <main>
+
+        <h1>Hola, estoy aprendiendo a usar GetElementsByTagName</h1>
+
+        <p>parrafo 1</p>
+        <p>parrafo 2</p>
+        <p>parrafo 3</p>
+
+        <h2 id="contador">hola</h2>
+
+        <script>
+
+            let parrafos = document.getElementsByTagName('p');
+            console.log(parrafos.length); /* Me está dando el valor total
+            de parrafos (3 en este caso) */
+
+            let contador = document.getElementById('contador');
+            contador.innerHTML = parrafos.length;
+
+        </script>
+
+    </main>
+
+    <footer>
+
+    </footer>
+    
+</body>
+</html>
