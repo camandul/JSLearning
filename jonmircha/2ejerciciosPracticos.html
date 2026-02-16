@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios prácticos 2</title>
+
+</head>
+
+<body>
+
+    <script>
+
+        /*
+        5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+        6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+        7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+        8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5. */
+
+
+        /* 5) Ejercicio 5 */
+
+        console.log('Ejercicio 5')
+        let cadena5 = 'Andres';
+        function funcionCinco(cadena) {
+
+            let invertido = ''
+
+            for (let index = cadena.length - 1; index >= 0; index--) {
+
+                invertido += cadena[index];
+
+            }
+
+            return invertido;
+
+        }
+
+        let quinto = funcionCinco(cadena5);
+        console.log(quinto);
+
+
+        /* 6) Ejercicio 6 */
+
+        console.log('Ejercicio 6');
+        function funcionSeis(cadena, palabra) {
+
+            let arregloAux = cadena.split(' ');
+            let contador = 0;
+
+            for (let index = 0; index < arregloAux.length; index++) {
+
+                if (arregloAux[index] === palabra) {
+                    contador += 1
+                }
+
+            }
+
+            return contador;
+
+        }
+
+        let seis = funcionSeis('Hoy en día el mundo es diferente al mundo de ayer ya que hay menos amor', 'mundo');
+        console.log(seis);
+
+
+        /* 7) Ejercicio 7 */
+
+        console.log('Ejercicio 7');
+
+        function siete(palabra) {
+            
+            let palabraMinus = palabra.toLowerCase()
+            let palabraInvertida = '';
+
+            for (let index = palabraMinus.length-1; index >= 0; index--) {
+                palabraInvertida += palabraMinus[index];
+            }
+
+            if(palabraInvertida === palabraMinus){
+                return 'Palabra palindrómo';
+            }else{
+                return 'Palabra no palíndromo';
+            }
+
+        }
+
+        let septimo = siete('ada');
+        console.log(septimo);
+
+        let palabra = 'Hola'
+        let modificacion = palabra.replace("a", "")
+        console.log(modificacion);
+
+    </script>
+
+</body>
+
+</html>
