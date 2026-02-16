@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios 3</title>
+</head>
+
+<body>
+
+    <script>
+
+        /*
+        
+        9) Programa una función que obtenga un numero aleatorio entre 501 y 600.
+        10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
+        11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
+
+        */
+
+
+        /* 9) Ejercicio 9 */
+        console.log('Ejercicio 9');
+
+        let rango = [501, 600];
+
+        function novena(rango) {
+            return Math.random() * (rango[1] - rango[0]) + rango[0];
+        }
+
+        let valorNueve = novena(rango);
+        console.log(valorNueve);
+
+
+        /* 10) Ejercicio 10*/
+        console.log('Ejercicio 10');
+
+        let valor = 2002;
+        let valorString = valor.toString();
+
+        function diez(numero) {
+
+            let valorInverso = '';
+
+            for (let index = numero.length - 1; index >= 0; index--) {
+
+                valorInverso += numero[index];
+            }
+
+            if (valorInverso == numero) {
+                return 'Número capicúa';
+            } else {
+                return 'Número no capicúa';
+            }
+
+        }
+
+        let resulDiez = diez(valorString);
+        console.log(resulDiez);
+
+
+        /* 11) Ejercicio 11*/
+        console.log('Ejercicio 11');
+
+        let valorFactorial = 5;
+
+        function factorial(number) {
+
+            try {
+
+                if(number <= 0){
+                    throw new Error('Número ingresado igual a 0 o negativo');
+                }
+
+                let resultado = 1;
+
+                for (let index = 1; index <= number; index++) {
+                    resultado *= index;
+                }
+
+                return resultado;
+
+            }catch(error){
+                console.log('Ha ocurrido el siguiente error -> ' + error);
+            }
+
+        }
+
+        let resulOnce = factorial(valorFactorial);
+        console.log(resulOnce);
+
+    </script>
+
+</body>
+
+</html>

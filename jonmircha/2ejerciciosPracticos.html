@@ -70,17 +70,17 @@
         console.log('Ejercicio 7');
 
         function siete(palabra) {
-            
+
             let palabraMinus = palabra.toLowerCase()
             let palabraInvertida = '';
 
-            for (let index = palabraMinus.length-1; index >= 0; index--) {
+            for (let index = palabraMinus.length - 1; index >= 0; index--) {
                 palabraInvertida += palabraMinus[index];
             }
 
-            if(palabraInvertida === palabraMinus){
+            if (palabraInvertida === palabraMinus) {
                 return 'Palabra palindrómo';
-            }else{
+            } else {
                 return 'Palabra no palíndromo';
             }
 
@@ -89,9 +89,25 @@
         let septimo = siete('ada');
         console.log(septimo);
 
-        let palabra = 'Hola'
-        let modificacion = palabra.replace("a", "")
-        console.log(modificacion);
+
+        /* 8) Ejercicio 8 */
+        console.log('Ejercicio 8');
+        let palabra = 'xyz1 xyz2 xyz3 xyz4 y xyz5'
+
+        function ocho(miCadena) {
+
+            while(miCadena.includes('xyz')){
+
+                miCadena = miCadena.replace('xyz', '');
+
+            }
+
+            return miCadena
+
+        }
+
+        let ochofinal = ocho(palabra);
+        console.log(ochofinal);
 
     </script>
 
