@@ -57,3 +57,22 @@ const novenoUltimo = noveno.children[1]; /* Este es el elemento 3, previamente i
 novenoUltimo.before(novenoInsertar); /* Y bajo este método le estoy diciendo que antes de este
 deseo insertar el nuevo valor */
 console.log(noveno.children); /* Debe arrojarme ahora una lista con 3 elementos (0,1,2)) */
+
+/* Decimo ejercicio */
+const decimo = document.getElementById('final');
+decimo.removeAttribute('id');
+decimo.classList.add('card');
+const elemento1 = document.createElement('h2');
+elemento1.innerText = 'Producto';
+const elemento2 = document.createElement('p');
+elemento2.innerText = 'Precio: $20';
+const elemento3 = document.createElement('button');
+elemento3.innerText = 'Comprar';
+decimo.append(elemento1, elemento2, elemento3);
+/* Finalmente voy a agregar un elemento al comienzo y final de este nodo padre */
+const elemento4 = document.createElement('p');
+elemento4.innerText = 'Elemento insertado al principio';
+const elemento5 = document.createElement('p');
+elemento5.innerText = 'Elemento insertado al final';
+decimo.prepend(elemento4);
+decimo.append(elemento5);
