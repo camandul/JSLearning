@@ -76,3 +76,8 @@ const elemento5 = document.createElement('p');
 elemento5.innerText = 'Elemento insertado al final';
 decimo.prepend(elemento4);
 decimo.append(elemento5);
+
+/* Onceavo ejercicio */
+const once = document.getElementById('once');
+console.log(once.childNodes); /* Estoy retornando nodos (prácticamente todo lo que está dentro de la caja once) */ 
+console.log(once.children); /* Estoy retornando elementos */
