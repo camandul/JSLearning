@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.botones {
+    background-color: #09f;
+    color: white;
+    cursor: pointer;
+
+    &.boton-presionado {
+        background-color: green;
+        cursor: not-allowed;
+    }
+
+}
