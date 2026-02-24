@@ -1,10 +1,25 @@
 const cajaColor = document.querySelector(".color");
 const button = document.querySelector("button");
 const valor = document.querySelector(".valor");
-const fondo =
-  document.getElementById(
-    "fondo",
-  ); /* Contenedor que lleva en él las cajas a estilar (paleta) */
+const fondo = document.getElementById("fondo");
+const footer = document.querySelector("footer");
+
+const codigos = Array.from(document.querySelectorAll("#fondo section p"));
+const cajasColor = Array.from(document.querySelectorAll("#fondo section"));
+
+cajasColor.forEach((cajaColor, index) => {
+  cajaColor.addEventListener("click", () => {
+    let copiable = codigos[index].innerText;
+    navigator.clipboard.writeText(copiable);
+    footer.classList.add("visible");
+
+    setTimeout(() => {
+      footer.classList.remove("visible");
+    }, 6000);
+  });
+});
+
+/* Contenedor que lleva en él las cajas a estilar (paleta) */
 /* const cajas = Array.from(fondo.children); */ /* Existe un método de Array que me permite
 tomar HTMLCollections y hacerlas un elemento Array para poder usar forEach, ya que HTMLCollection no se puede
 iterar con forEach, los Nodos por su parte si se pueden iterar usando forEach */
@@ -16,6 +31,7 @@ Si bien ya aprendí estos métodos, voy a usar for of, que este si está soporta
 const cajas = fondo.children;
 
 function darColor() {
+  /* Función que genera un color aleatorio */
   let valorFinal = "#";
 
   /* Teniendo en cuenta que son utilizados valores hexadecimales */
@@ -29,6 +45,11 @@ function darColor() {
   return valorFinal;
 }
 
+cajaColor.addEventListener("click", () => {
+  let copiable = valor.innerText;
+  navigator.clipboard.writeText(copiable);
+});
+
 button.addEventListener("click", async () => {
   const color = darColor();
   valor.innerText = color;
@@ -41,15 +62,14 @@ button.addEventListener("click", async () => {
   let i = 0;
   for (const caja of cajas) {
     caja.style.backgroundColor = paleta[i];
-    console.log(caja.style.backgroundColor);
+    codigos[i].innerText = paleta[i];
     i++;
   }
 });
 
 /* Integración de IA para generar una paleta de colores con base en el color aleatorio generado */
 async function obtenerPaletaDeIA(colorHex) {
-  const API_KEY = "AIzaSyDvgpp-lvzCq8X5vNbvU0ueFZ7KqQkXMJs"; // Asegúrate de que sea la de tu captura
-  // Prueba con esta URL que es la más estándar de todas
+  const API_KEY = 'APIKEY';
   const URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${API_KEY}`;
   const bodyPeticion = {
     contents: [
@@ -75,11 +95,9 @@ async function obtenerPaletaDeIA(colorHex) {
 
     const datos = await respuesta.json();
 
-    // Respuesta correcta de IA
     if (datos.candidates && datos.candidates[0].content) {
       let textoIA = datos.candidates[0].content.parts[0].text;
 
-      // Limpiamos el texto por si la IA añade ```json ... ```
       const jsonLimpio = textoIA
         .replace(/```json/g, "")
         .replace(/```/g, "")
